@@ -6,3 +6,13 @@
 .item-1 {
     padding: 0;
 }
+
+@media screen and (max-width: 600px) {
+    .main-container {
+        flex-direction: column-reverse;
+    }
+    .item-1 {
+        max-height: 450px;
+        z-index: -1;
+    }
+}

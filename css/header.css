@@ -18,7 +18,7 @@ nav {
     color: var(--gold-color);
     height: 60px;
     padding: 0px;
-    gap: 250px;
+    gap: 200px;
 }
 
 .logo {
@@ -39,11 +39,11 @@ nav a {
 }
 
 .align-right { 
-    text-align: right; 
+    text-align: center; 
 }
 
 .align-left { 
-    text-align: left;  
+    text-align: center;  
 }
 
 nav h1 {
