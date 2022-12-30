@@ -1,0 +1,8 @@
+.main-container {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr;
+}
+
+.item-1 {
+    padding: 0;
+}
