@@ -96,6 +96,7 @@ select {
     font-family: 'Prompt', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
     appearance: none;
+    -webkit-appearance: none;
     background-image: url("../images/chevron-down-solid.svg");
     background-repeat: no-repeat;
     background-position: right 1rem center;
