@@ -17,31 +17,53 @@ const selectBtn = document.getElementById('select-btn');
 const listItems = document.getElementById('list-items');
 const items = document.getElementsByClassName('li-item');
 
+let moved = 0;
+
 // Multi select logic
+window.addEventListener('touchstart', function() {
+    moved = 0;
+});
+
+window.addEventListener('touchmove', function() {
+    moved = 1;
+});
+
 "click touchend".split(" ").forEach(function(e){
     window.addEventListener(e, function(e) {
-        if (selectBtn.contains(e.target)){
-            selectBtn.classList.toggle('open');
-        } else {
-            if (!listItems.contains(e.target) && selectBtn.classList.contains('open')) {
+        if (moved === 0) {
+            if (selectBtn.contains(e.target)){
                 selectBtn.classList.toggle('open');
+            } else {
+                if (!listItems.contains(e.target) && selectBtn.classList.contains('open')) {
+                    selectBtn.classList.toggle('open');
+                }
             }
         }
     });
 });
 
 Array.from(items).forEach(element => {
+    element.addEventListener('touchstart', function() {
+        moved = 0;
+    });
+
+    element.addEventListener('touchmove', function() {
+        moved = 1;
+    });
+
     "click touchend".split(" ").forEach(function(e){
         element.addEventListener(e, function() {
-            element.classList.toggle('checked');
+            if (moved === 0) {
+                element.classList.toggle('checked');
 
-            let checked = document.getElementsByClassName('checked');
-            let btnText = document.getElementById('btn-text');
+                let checked = document.getElementsByClassName('checked');
+                let btnText = document.getElementById('btn-text');
 
-            if (checked && checked.length > 0) {
-                btnText.innerHTML = checked.length + ' treatment(s) selected';
-            } else {
-                btnText.innerHTML = 'Select treatment(s)';
+                if (checked && checked.length > 0) {
+                    btnText.innerHTML = checked.length + ' treatment(s) selected';
+                } else {
+                    btnText.innerHTML = 'Select treatment(s)';
+                }
             }
         });
     });
