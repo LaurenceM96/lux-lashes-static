@@ -43,30 +43,21 @@ window.addEventListener('touchmove', function() {
 });
 
 Array.from(items).forEach(element => {
-    element.addEventListener('touchstart', function() {
-        moved = 0;
-    });
+    element.addEventListener('click', function() {
+        if (moved === 0) {
+            element.classList.toggle('checked');
 
-    element.addEventListener('touchmove', function() {
-        moved = 1;
-    });
+            let checked = document.getElementsByClassName('checked');
+            let btnText = document.getElementById('btn-text');
 
-    "click touchend".split(" ").forEach(function(e){
-        element.addEventListener(e, function() {
-            if (moved === 0) {
-                element.classList.toggle('checked');
-
-                let checked = document.getElementsByClassName('checked');
-                let btnText = document.getElementById('btn-text');
-
-                if (checked && checked.length > 0) {
-                    btnText.innerHTML = checked.length + ' treatment(s) selected';
-                } else {
-                    btnText.innerHTML = 'Select treatment(s)';
-                }
+            if (checked && checked.length > 0) {
+                btnText.innerHTML = checked.length + ' treatment(s) selected';
+            } else {
+                btnText.innerHTML = 'Select treatment(s)';
             }
-        });
+        }
     });
+    
 });
 
 
