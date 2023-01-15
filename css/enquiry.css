@@ -44,6 +44,7 @@ input {
     vertical-align: top;
     font-family: 'Prompt', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 15px;
+    color: black;
 }
 
 input[type="datetime-local"] {
@@ -93,6 +94,7 @@ select {
     border-radius: 10px;
     padding: 10px 20px 10px 10px;
     font-size: 15px;
+    color: black;
     font-family: 'Prompt', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
     appearance: none;
