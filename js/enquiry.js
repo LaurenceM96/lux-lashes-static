@@ -17,9 +17,20 @@ const selectBtn = document.getElementById('select-btn');
 const listItems = document.getElementById('list-items');
 const items = document.getElementsByClassName('li-item');
 
-let moved = 0;
+// Detect ios safari
+var ua = window.navigator.userAgent;
+var iOS = ua.match(/iPad/i) || ua.match(/iPhone/i);
+var webkit = ua.match(/WebKit/i);
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+eventType = "click";
+
+if (iOSSafari) {
+    eventType = "click touchend";
+}
 
 // Multi select logic
+let moved = 0;
 window.addEventListener('touchstart', function() {
     moved = 0;
 });
@@ -28,7 +39,7 @@ window.addEventListener('touchmove', function() {
     moved = 1;
 });
 
-"click".split(" ").forEach(function(e){
+eventType.split(" ").forEach(function(e){
     window.addEventListener(e, function(e) {
         if (moved === 0) {
             if (selectBtn.contains(e.target)){
