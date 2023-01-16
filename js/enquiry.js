@@ -250,8 +250,6 @@ const validateAndSubmitToAPI = evt => {
         info : info
     };
 
-    console.log("TEST");
-
     fetch(url, {
         method: "POST",
         headers: {
