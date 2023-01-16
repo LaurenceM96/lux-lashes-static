@@ -32,7 +32,7 @@ if (iPhoneSafari) {
 }
 
 if (iPadSafari) {
-    eventType = "click touchstart";
+    eventType = "touchend";
 }
 
 // Multi select logic
