@@ -19,14 +19,20 @@ const items = document.getElementsByClassName('li-item');
 
 // Detect ios safari
 var ua = window.navigator.userAgent;
-var iOS = ua.match(/iPhone/i);
+var iPad = ua.match(/iPad/i);
+var iPhone = ua.match(/iPhone/i);
 var webkit = ua.match(/WebKit/i);
-var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+var iPhoneSafari = iPhone && webkit && !ua.match(/CriOS/i);
+var iPadSafari = iPad && webkit && !ua.match(/CriOS/i);
 
 eventType = "click";
 
-if (iOSSafari) {
+if (iPhoneSafari) {
     eventType = "click touchend";
+}
+
+if (iPadSafari) {
+    eventType = "click touchstart";
 }
 
 // Multi select logic
