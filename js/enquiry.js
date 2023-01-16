@@ -28,7 +28,7 @@ window.addEventListener('touchmove', function() {
     moved = 1;
 });
 
-"click touchend".split(" ").forEach(function(e){
+"click".split(" ").forEach(function(e){
     window.addEventListener(e, function(e) {
         if (moved === 0) {
             if (selectBtn.contains(e.target)){
