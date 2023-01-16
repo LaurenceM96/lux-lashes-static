@@ -47,7 +47,6 @@ window.addEventListener('touchmove', function() {
 
 "click".split(" ").forEach(function(e){
     window.addEventListener(e, function(e) {
-        alert("clicked");
         if (moved === 0) {
             if (selectBtn.contains(e.target)){
                 selectBtn.classList.toggle('open');
