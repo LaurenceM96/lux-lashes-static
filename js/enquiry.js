@@ -27,13 +27,13 @@ var iPadSafari = iPad && webkit && !ua.match(/CriOS/i);
 
 eventType = "click";
 
-if (iPhoneSafari) {
-    eventType = "click touchend";
-}
+// if (iPhoneSafari) {
+//     eventType = "click touchend";
+// }
 
-if (iPadSafari) {
-    eventType = "touchstart";
-}
+// if (iPadSafari) {
+//     eventType = "touchstart";
+// }
 
 // Multi select logic
 let moved = 0;
