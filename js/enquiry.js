@@ -45,7 +45,7 @@ window.addEventListener('touchmove', function() {
     moved = 1;
 });
 
-eventType.split(" ").forEach(function(e){
+"click".split(" ").forEach(function(e){
     window.addEventListener(e, function(e) {
         alert("clicked");
         if (moved === 0) {
