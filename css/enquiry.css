@@ -68,6 +68,7 @@ form button {
     color: #eceae8;
     width: 80%;
     font-family: 'Prompt', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: medium;
 }
 
 form button:hover {
