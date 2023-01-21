@@ -256,12 +256,47 @@ const validateAndSubmitToAPI = evt => {
         info : info
     };
 
+    const formElement = document.getElementById('enquiry-form');
+    const containerElement = document.getElementById('form-container');
+
+    var currentContentHeight = containerElement.offsetHeight;
+    containerElement.style.height = currentContentHeight + "px";
+    containerElement.style.justifyContent = "flex-start";
+
+    const loadingElement = document.createElement("h2");
+    const loadingText = document.createTextNode("Sending enquiry...");
+    loadingElement.appendChild(loadingText);
+    loadingElement.style.marginTop = "50px";
+
+    formElement.remove();
+    containerElement.appendChild(loadingElement);
+
+    window.scrollTo(0, 0);
+
+
+
     fetch(url, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
         },
         body: JSON.stringify(data)
-    }).then(response => response.text())
-        .then(console.log);
+    }).then((response) => {
+        console.log(response.text);
+        if (response.ok) {
+          loadingElement.textContent = "Enquiry sent!";
+          const homeButton = document.createElement("a");
+          homeButton.setAttribute('class', "action-button");
+          homeButton.setAttribute('href', "index.html");
+          const homeButtonText = document.createTextNode("Click here to back to our home page");
+          homeButton.appendChild(homeButtonText);
+          containerElement.appendChild(homeButton);
+        } else {
+            throw new Error('Something went wrong');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        loadingElement.textContent = "Oops, something went wrong!";
+      });
 }
